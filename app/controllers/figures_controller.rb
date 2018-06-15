@@ -7,11 +7,13 @@ class FiguresController < ApplicationController
     end
 
     get '/figures/new' do
+        @titles = Title.all
         erb :'figures/new'
     end
 
     post '/figures/new' do
         binding.pry
+        
         erb :'figures/show'
     end
 

@@ -6,7 +6,10 @@
     <br>
     
     <h2>Title: </h2>
-    <input id="figure[title_ids][]" type="checkbox" name="title[name]"> <!-- list all, maybe? -->
+    <%@titles.each do |title|%>
+    <label for="title_<%=title.id%>"><%= title.name%></label>
+        <input id="title_<%=title.id%>" type="checkbox" name="figure[title_ids][]"><br>
+    <%end%>
     <br>
     
     <h2>Landmark: </h2>
