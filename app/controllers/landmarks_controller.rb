@@ -28,6 +28,9 @@ class LandmarksController < ApplicationController
         if params['landmark']['name'] != ""
             @landmark.name = params['landmark']['name']
         end
+        if params['landmark']['year_completed'] != ""
+            @landmark.year_completed = params['landmark']['name']
+        end
         @landmark.save
         redirect to :"landmarks/#{@landmark.id}"
     end
