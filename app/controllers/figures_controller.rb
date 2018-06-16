@@ -41,12 +41,6 @@ class FiguresController < ApplicationController
         redirect to "figures/#{@figure.id}"
     end
 
-    get '/figures/:id' do
-        # binding.pry
-        @figure = Figure.find(params[:id])
-        erb :'figures/show'
-    end
-
     get '/figures/:id/edit' do
         @titles = Title.all
         @figure = Figure.find(params[:id])
@@ -62,5 +56,11 @@ class FiguresController < ApplicationController
         redirect to "figures/#{@figure.id}"
     end
 
+    
+    get '/figures/:id' do
+        # binding.pry
+        @figure = Figure.find(params[:id])
+        erb :'figures/show'
+    end
 
 end
