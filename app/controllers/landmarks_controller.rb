@@ -8,4 +8,8 @@ class LandmarksController < ApplicationController
         
         erb :'/landmarks/new'
     end
+
+    post '/landmarks' do
+        redirect to :'/landmarks/#{@landmark.id}'
+    end
 end
