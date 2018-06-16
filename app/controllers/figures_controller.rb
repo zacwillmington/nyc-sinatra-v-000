@@ -50,9 +50,15 @@ class FiguresController < ApplicationController
 
     post '/figures/:id' do
         binding.pry
-        @titles = Title.all
         @figure = Figure.find(params[:id])
-
+        if params['figure']['name'] != ""
+            @figure.name = params['figure']['name']
+        end
+        if params['landmark']['name'] != ""
+            @landmark = Landmark.create(:name => params['landmark']['name'])
+            @figure.landmarks << @landmark
+        end
+        binding.pry
         redirect to "/figures/#{@figure.id}"
     end
 
