@@ -49,7 +49,6 @@ class FiguresController < ApplicationController
     end
 
     post '/figures/:id' do
-        binding.pry
         @figure = Figure.find(params[:id])
         if params['figure']['name'] != ""
             @figure.name = params['figure']['name']
@@ -59,7 +58,7 @@ class FiguresController < ApplicationController
             @figure.landmarks << @landmark
         end
         @figure.save
-        binding.pry
+        # binding.pry
         redirect to "/figures/#{@figure.id}"
     end
 
