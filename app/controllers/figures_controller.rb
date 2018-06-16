@@ -53,7 +53,7 @@ class FiguresController < ApplicationController
         @titles = Title.all
         @figure = Figure.find(params[:id])
 
-        redirect to "figures/#{@figure.id}"
+        redirect to "/figures/#{@figure.id}"
     end
 
 
