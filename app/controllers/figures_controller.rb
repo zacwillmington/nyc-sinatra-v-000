@@ -47,4 +47,20 @@ class FiguresController < ApplicationController
         erb :'figures/show'
     end
 
+    get '/figures/:id/edit' do
+        @titles = Title.all
+        @figure = Figure.find(params[:id])
+
+        erb :"figures/edit"
+    end
+
+    post '/figures/:id/edit' do
+        binding.pry
+        @titles = Title.all
+        @figure = Figure.find(params[:id])
+
+        redirect to "figures/#{@figure.id}"
+    end
+
+
 end
