@@ -9,7 +9,7 @@ describe LandmarksController do
   end
 
   after do
-    Landmark.destroy_all
+    Landmark.destroy_all 
   end
 
   it "allows you to view form to create a new landmark" do
