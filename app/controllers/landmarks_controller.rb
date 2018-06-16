@@ -1,6 +1,7 @@
 class LandmarksController < ApplicationController
 
     get '/landmarks' do
+        @landmarks = Landmark.all
         erb :'/landmarks/index'
     end
 
@@ -10,7 +11,7 @@ class LandmarksController < ApplicationController
     end
 
     post '/landmarks' do
-        
+
         redirect to :'/landmarks/#{@landmark.id}'
     end
 
