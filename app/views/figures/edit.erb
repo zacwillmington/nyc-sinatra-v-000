@@ -1,6 +1,6 @@
 <h1>Edit <%=@figure.name%></h1>
-<form action="figures/<%=@figure.id%>" method="post">
-
+<form action="/figures/<%=@figure.id%>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
     <label for="figure_name">Name: </label>
     <input id="figure_name" type="text" name="figure[name]">
     <br>
@@ -15,6 +15,6 @@
     <label for="new_landmark">Add New Landmark To Figure: </label>
     <input id="new_landmark" type="text" name="landmark[name]">
     <br>
-    
+
     <input type="submit" name="Edit Figure" value="Edit Figure">
 </form>

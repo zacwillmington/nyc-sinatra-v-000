@@ -41,12 +41,6 @@ class FiguresController < ApplicationController
         redirect to "figures/#{@figure.id}"
     end
 
-    get '/figures/:id' do
-        # binding.pry
-        @figure = Figure.find(params[:id])
-        erb :'figures/show'
-    end
-
     get '/figures/:id/edit' do
         @titles = Title.all
         @figure = Figure.find(params[:id])
@@ -54,13 +48,25 @@ class FiguresController < ApplicationController
         erb :"figures/edit"
     end
 
-    post '/figures/:id/edit' do
-        binding.pry
-        @titles = Title.all
+    post '/figures/:id' do
         @figure = Figure.find(params[:id])
-
-        redirect to "figures/#{@figure.id}"
+        if params['figure']['name'] != ""
+            @figure.name = params['figure']['name']
+        end
+        if params['landmark']['name'] != ""
+            @landmark = Landmark.create(:name => params['landmark']['name'])
+            @figure.landmarks << @landmark
+        end
+        @figure.save
+        # binding.pry
+        redirect to "/figures/#{@figure.id}"
     end
 
+
+    get '/figures/:id' do
+        # binding.pry
+        @figure = Figure.find(params[:id])
+        erb :'figures/show'
+    end
 
 end
